@@ -1,0 +1,61 @@
+{
+  "name": "...", //Please change the name of the app here.
+  "author": "...", //Please change the name of the author.
+  "version": "0.1.0", //Edit too whatever version you need - this is needed.
+  "homepage": "./", //This is needed for React to work with Electron.
+  "build": {
+    "appId": "...", //Your appId here.
+    "extends": null,
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "./public/electron.js" //Entry point for the electon.js file, this stops errors in build.
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "typescript": "^3.4.5",
+    "wait-on": "^3.2.0"
+  },
+  "main": "public/electron.js", //Entry point again depending on where your entry is.
+  "scripts": {
+    "start": "react-scripts start",
+    "build": 
+    "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"set BROWSER=none && npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "build main=public/electron.js", //Change this to the entry point of electron as well.
+    "preelectron-pack": "npm run-script build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "electron": "^5.0.2",
+    "electron-builder": "^20.41.0",
+    "react-scripts": "0.8.5"
+  }
+}
