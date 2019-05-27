@@ -1,15 +1,15 @@
 {
-  "name": "...", //Please change the name of the app here.
-  "author": "...", //Please change the name of the author.
-  "version": "0.1.0", //Edit too whatever version you need - this is needed.
-  "homepage": "./", //This is needed for React to work with Electron.
+  "name": "test",
+  "author": "test",
+  "version": "0.1.0",
+  "homepage": "./",
   "build": {
-    "appId": "...", //Your appId here.
+    "appId": "com.test",
     "extends": null,
     "files": [
       "build/**/*",
       "node_modules/**/*",
-      "./public/electron.js" //Entry point for the electon.js file, this stops errors in build.
+      "./public/electron.js"
     ],
     "directories": {
       "buildResources": "assets"
@@ -25,16 +25,15 @@
     "typescript": "^3.4.5",
     "wait-on": "^3.2.0"
   },
-  "main": "public/electron.js", //Entry point again depending on where your entry is.
+  "main": "public/electron.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": 
-    "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "electron": "electron .",
     "electron-dev": "concurrently \"set BROWSER=none && npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-pack": "build main=public/electron.js", //Change this to the entry point of electron as well.
+    "electron-pack": "build main=public/electron.js",
     "preelectron-pack": "npm run-script build"
   },
   "eslintConfig": {
